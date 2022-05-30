@@ -39,12 +39,17 @@ public class Usuario_Controller {
 			mav.addObject("usuario", usuario);
 			return mav;
 		}
-		ModelAndView mav=new ModelAndView("redirect:/usuario/listaUsuarios");
+		//ModelAndView mav=new ModelAndView("redirect:/usuario/listaUsuarios");
 		usuario.setCont_voto(0);
 		if(usuarioService.guardarUsuario(usuario)) {
+			ModelAndView mav=new ModelAndView("redirect:/usuario/listaUsuarios");
 			LOGGER.info("Se registro usuario "+usuario.getNombre());
+			return mav;
+		}else {
+			ModelAndView mav=new ModelAndView("redirect:/usuario/nuevo");
+			LOGGER.info("No se registro usuario "+usuario.getNombre());
+			return mav;
 		}
-		return mav;
 	}
 	
 	@GetMapping("/listaUsuarios")
