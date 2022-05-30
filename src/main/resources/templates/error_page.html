@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
 </head>
+
 <body>
-	<p> pagina en contruccion XD </p>
+<nav th:insert="loyouts/header :: generalheader"></nav>
+
+<div class="container-fluid">
+	<div class="row">
+		<div></div>
+		<div>
+			<h1 class="text-center mt-5">EL USUARIO SELECCIONADO HA LLEGADO AL LIMITE DE VOTOS PERMITIDOS</h1>
+			<div class="text-center mt-5">
+				<button class="btn btn-dark btn-lg"><a th:href="@{/usuario/listaUsuarios}">Volver</a></button>
+			</div>
+		</div>
+		<div></div>
+	</div>
+</div>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/popper.js/2.9.3/umd/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+
 </body>
 </html>

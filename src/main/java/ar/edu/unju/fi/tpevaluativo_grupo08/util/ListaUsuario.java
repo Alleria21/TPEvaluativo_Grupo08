@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 
 import ar.edu.unju.fi.tpevaluativo_grupo08.model.Usuario;
 
-
-
 @Component
 public class ListaUsuario {
 	private ArrayList<Usuario> usuarios;
