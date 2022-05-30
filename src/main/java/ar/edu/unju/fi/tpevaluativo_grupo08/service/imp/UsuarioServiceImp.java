@@ -27,7 +27,17 @@ public class UsuarioServiceImp implements IUsuarioService {
 	@Override
 	public boolean guardarUsuario(Usuario usuario) {
 		// guardar un objeto
-		boolean respuesta=listaUsuario.getUsuario().add(usuario);//Controlar que no se agreguen repetidos
+		boolean respuesta=true;
+		for(Usuario usu: listaUsuario.getUsuario()){
+			if(usu.getEmail().equals(usuario.getEmail())) {
+				respuesta=false;
+			}
+		}
+		if(respuesta==true)
+		{
+			listaUsuario.getUsuario().add(usuario);
+		}
+		//boolean respuesta=listaUsuario.getUsuario().add(usuario);//Controlar que no se agreguen repetidos
 		return respuesta;
 	}
 
@@ -41,7 +51,7 @@ public class UsuarioServiceImp implements IUsuarioService {
 	public boolean guardarVoto(String mail) {
 		boolean respuesta=false;
 		for(Usuario usu: listaUsuario.getUsuario()){
-			if(usu.getEmail().equals(mail)) {
+			if(usu.getEmail().equals(mail) && usu.getCont_voto() < 3) {
 				usu.setCont_voto(usu.getCont_voto()+1);
 				respuesta=true;
 			}
